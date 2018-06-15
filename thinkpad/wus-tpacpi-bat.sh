@@ -29,7 +29,7 @@
 #### DESCRIPTION #################################################################
 ##################################################################################
 ####                                                                          ####
-#### wus-tpacpi-bat.sh is to control battery statuss on a thinkpads           ####
+#### wus-tpacpi-bat.sh is to control battery status  on thinkpad laptops      ####
 ####                                                                          ####
 #### Author:  wuseman                                                         ####
 #### Contact: info@sendit.nu                                                  ####
