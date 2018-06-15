@@ -1,0 +1,80 @@
+#!/bin/bash 
+##################################################################################
+##### LICENSE ####################################################################
+##################################################################################
+####                                                                          ####
+#### Copyright (C) 2018 wuseman <info@sendit.nu>                              ####
+####                                                                          ####
+#### This program is free software: you can redistribute it and/or modify     ####
+#### it under the terms of the GNU General Public License as published by     ####
+#### the Free Software Foundation, either version 3 of the License, or        ####
+#### (at your option) any later version.                                      ####
+####                                                                          ####
+#### This program is distributed in the hope that it will be useful,          ####
+#### but WITHOUT ANY WARRANTY; without even the implied warranty of           ####
+#### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            ####
+#### GNU General Public License at <http://www.gnu.org/licenses/> for         ####
+#### more details.                                                            ####
+####                                                                          ####
+##################################################################################
+##### GREETINGS ##################################################################
+##################################################################################
+####                                                                          ####
+#### To all developers that contributes to all kind of open source projects   ####
+#### Keep up the good work!                                                   #<3#
+####                                                                          ####
+#### https://sendit.nu & https://github.com/wuseman                           ####
+####                                                                          ####
+##################################################################################
+#### DESCRIPTION #################################################################
+##################################################################################
+####                                                                          ####
+#### wus-ramdisk.sh creates a temporary ramdisk and will speedtest your ram   ####
+#### read and write speeds by using 'dd'                                      ####
+####                                                                          ####
+#### Author:  wuseman                                                         ####
+#### Contact: info@sendit.nu                                                  ####
+#### IRC:     wuseman @ Freenode.com                                          ####
+#### Distro:  This script has been tested on: Lenovo Thinkpad W541 with Gentoo####
+####                                                                          ####
+#### Usage:   bash wus-ramdisk.sh                                             ####
+####                                                                          ####
+#### Enjoy another awesome 'bash' script from wuseman. Questions? Conact me!  ####
+####                                                                          ####
+##################################################################################
+#### Begin of code  ##############################################################
+
+#### Just change SIZE to resize your ramdisk.
+SIZE=1G
+
+
+
+
+
+######### Do not touch things below if you do not know
+######### exactly what you are doing, dd is extremely powerful.
+
+cat <<EOF
+           ____                  __            __
+ _      __/ __ \________________/ /____  _____/ /_
+| | /| / / /_/ / __  / __  __ \/ __/ _ \/ ___/ __/
+| |/ |/ / _, _/ /_/ / / / / / / /_/  __(__  ) /_  v1.0
+|__/|__/_/ |_|\____/_/ /_/ /_/\__/\___/____/\__/
+
+EOF
+
+if [ $EUID -gt "0" ]
+ then
+echo -e "\n       This script needs root priviliges\n"
+ exit
+fi
+
+#mkdir -p /mnt/ram
+  mount -t tmpfs -o size=$SIZE tmpfs /mnt/ram
+  w=$(dd if=/dev/zero of=/mnt/ram/1000MiB bs=4k count=10000 2> >( grep copied | cut -f3 -ds | cut -c3-) )
+  r=$(dd if=/mnt/ram/1000MiB of=/dev/null bs=4k count=10000 2> >( grep copied | cut -f3 -ds | cut -c3-) )
+  umount /mnt/ram
+echo -e '\n[->] \e[0;32mWrite speed:\e[0m '$w 
+echo -e '[<-] \e[0;31mRead speed:\e[0m ' $r
+echo -e '\n'
+
