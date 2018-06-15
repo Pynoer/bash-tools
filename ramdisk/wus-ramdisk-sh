@@ -69,7 +69,7 @@ echo -e "\n       This script needs root priviliges\n"
  exit
 fi
 
-#mkdir -p /mnt/ram
+mkdir -p /mnt/ram
   mount -t tmpfs -o size=$SIZE tmpfs /mnt/ram
   w=$(dd if=/dev/zero of=/mnt/ram/1000MiB bs=4k count=10000 2> >( grep copied | cut -f3 -ds | cut -c3-) )
   r=$(dd if=/mnt/ram/1000MiB of=/dev/null bs=4k count=10000 2> >( grep copied | cut -f3 -ds | cut -c3-) )
