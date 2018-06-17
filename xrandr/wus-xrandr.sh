@@ -29,7 +29,7 @@
 #### DESCRIPTION #################################################################
 ##################################################################################
 ####                                                                          ####
-#### This script will edit and set a new resolution for your monitor          ####
+#### This script will edit and set a new resolution for for thinkpad-w541     ####
 ####                                                                          ####
 #### Author:  wuseman                                                         ####
 #### Contact: info@sendit.nu                                                  ####
@@ -45,22 +45,10 @@
 ##################################################################################
 
 
-# Use xrandr to make sure that the new mode can fit within the maximum framebuffer size
 xrandr | grep maximum
+gtf 1920x1080 59.9
+xrandr --newmode "1920x1080_59.90"  172.51  1920 2040 2248 2576  1080 1081 1084 1118  -HSync +Vsync
+xrandr --addmode eDP-1-1 1920x1080_59.90
+xrandr --output eDP-1-1 1920x1080_59.90
 
-# Use gtf to create a mode line
-gtf 1440 900 59.9
-
-# Add new mode using xrandr
-xrandr --newmode "XXXxXXX_59.90"  106.29  1440 1520 1672 1904  900 901 904 932  -HSync +Vsync
-
-# Add this newly added mode to the desired output (VGA/LVDS etc)
-xrandr --addmode VGA 1440x900_59.90
-
-# Choose the new mode
-xrandr --output VGA --mode 1440x900_59.90
-
-##### NOTICE ######################################################################
-####  TO MAKE THE CHANGES PERSISTENT ##############################################
-###################################################################################
 # sudo vi /etc/X11/xorg.conf
