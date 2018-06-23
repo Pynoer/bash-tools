@@ -114,7 +114,7 @@ echo -e "cscript                 SITE[:space:]WIPE       post    /bin/cleanup\nc
 echo -e "site_cmd                RESCAN                  EXEC    /bin/rescan\ncustom-rescan           *      *\ncscript                 RETR                    post    /bin/dl_speedtest\n" >> /etcglftpd.conf
 echo -e "site_cmd                AUDIOSORT               EXEC    /bin/audiosort\ncustom-audiosort        *      *"
 clear
-echo -e "\n\nThe boring job has been done, now go delete glftpd and configure your new ftp server and fun!\n\n // wuseman"
+echo -e "\n\nThe boring job has been done, now go delete glftpd and configure your new ftp server and fun\n\n // wuseman"
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
