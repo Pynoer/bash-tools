@@ -108,15 +108,11 @@ cd /opt; git clone https://github.com/pzs-ng/pzs-ng.git; cd /opt/pzs-ng/; mv /op
 /opt/pzs-ng/zipscript/conf/zsconfig.h; sleep 5; nano /opt/pzs-ng/zipscript/conf/zsconfig.h; cd /opt/pzs-ng/; ./configure; make; make install; 
 ./scripts/libcopy/libcopy.sh
 
-echo -e "\npost_check            /bin/zipscript-c *\ncalc_crc                *\ncscript                 DELE                    post    
-/bin/postdel\n" >> /etc/glftpd/glftpd.conf
-echo -e "cscript                 RMD                     post    /bin/datacleaner\ncscript                 SITE[:space:]NUKE       post    
-/bin/cleanup\n" >> /etc/glftpd/glftpd.conff
-echo -e "cscript                 SITE[:space:]WIPE       post    /bin/cleanup\ncscript                 SITE[:space:]UNNUKE     post    
-/bin/postunnuke\n" >> /etc/glftpd/glftpd.conf
-echo -e "site_cmd                RESCAN                  EXEC    /bin/rescan\ncustom-rescan           !8      *\ncscript                 RETR                    
-post    /bin/dl_speedtest\n" >> /etc/glftpd/glftpd.conf
-echo -e "site_cmd                AUDIOSORT               EXEC    /bin/audiosort\ncustom-audiosort        !8      *"
+echo -e "\npost_check            /bin/zipscript-c *\ncalc_crc                *\ncscript                 DELE                    post    /bin/postdel\n" >> /etc/glftpd.conf
+echo -e "cscript                 RMD                     post    /bin/datacleaner\ncscript                 SITE[:space:]NUKE       post    /bin/cleanup\n" >> /etcglftpd.conff
+echo -e "cscript                 SITE[:space:]WIPE       post    /bin/cleanup\ncscript                 SITE[:space:]UNNUKE     post    /bin/postunnuke\n" >> /etc/glftpd.conf
+echo -e "site_cmd                RESCAN                  EXEC    /bin/rescan\ncustom-rescan           *      *\ncscript                 RETR                    post    /bin/dl_speedtest\n" >> /etcglftpd.conf
+echo -e "site_cmd                AUDIOSORT               EXEC    /bin/audiosort\ncustom-audiosort        *      *"
 clear
 echo -e "\n\nThe boring job has been done, now go delete glftpd and configure your new ftp server and fun!\n\n // wuseman"
  else
