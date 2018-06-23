@@ -35,7 +35,7 @@
 #### Contact: info@sendit.nu                                                  ####
 #### IRC:     wuseman @ Freenode.com                                          ####
 #### Distro:  This script has been tested on: Gentoo                          ####
-#### Usage:   bash wus-upordown.sh <ip/host>                                  ####
+#### Usage:   bash wus-upordown.sh ip/hostname                                ####
 ####                                                                          ####
 #### Enjoy another 'bash' script from wuseman. Questions? Contact me!         ####
 ####                                                                          ####
@@ -43,8 +43,7 @@
 #### Begin of code ###############################################################
 ##################################################################################
 
-read -p "IP/Hostname: " iphost
-if ping -c 1 $iphost &> /dev/null
+if ping -c 1 $1 &> /dev/null
 then
   echo -e 'Status: \e[32mUP'
 else
