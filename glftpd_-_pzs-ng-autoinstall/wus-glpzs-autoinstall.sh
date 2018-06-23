@@ -40,7 +40,7 @@
 #### IRC:     wuseman @ Freenode.com                                          ####
 #### Distro:  This script has been tested on: Gentoo / Raspian(Debian)        ####
 ####                                                                          ####
-#### Usage:   bash wus-exif.sh                                                ####
+#### Usage:   bash wus-glpzs-autoinstall.sh                                   ####
 ####                                                                          ####
 #### Enjoy another awesome 'bash' script from wuseman. Questions? Conact me!  ####
 ####                                                                          ####
