@@ -55,7 +55,5 @@ cat <<EOF
 
 EOF
 
-read -p "First File: " first
-read -p "Second File: " second
 echo -e "\nPrinting files:\n"
-diff -y -W 120 $first $second
+diff -y -W 150 $1 $2
