@@ -32,9 +32,6 @@
 #### Install glftpd & pzs-ng with one easy command easier then ever..         ####
 #### Full supported for Gentoo, Debian, Ubuntu atm                            ####
 ####                                                                          ####
-#### In case they will go down or soemthing i the list is stored in           ####
-#### the filelist in ./sec-us-archive.txt                                     ####
-####                                                                          ####
 #### Author:  wuseman                                                         ####
 #### Contact: info@sendit.nu                                                  ####
 #### IRC:     wuseman @ Freenode.com                                          ####
